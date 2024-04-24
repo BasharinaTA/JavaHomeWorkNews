@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Новости</title>
+    <link rel="icon" href="/img/news.ico"/>
+    <link rel="stylesheet" href="/css/style.css"/>
+</head>
+<body>
+<th:block th:insert="~{layouts/header.html::headerLayout}"></th:block>
+<main>
+    <form method="post" th:action="${registration ? '/users/add' : '/login'}" class="form-login">
+        <input type="text" placeholder="Логин" name="username" th:value="${error != null ? name : null}"
+               class="inputText" required>
+        <span th:if="${error == 'login'}" class="error">Указанный пользователь уже зарегистрирован</span>
+        <input th:if="${registration}"
+               type="text"
+               placeholder="Фамилия Имя"
+               name="fio"
+               th:value="${error != null ? fio : null}"
+               required>
+        <input type="password" placeholder="Пароль" name="password" class="inputText" required>
+        <span th:if="${error == 'password'}" class="error">Пароли не совпадают</span>
+        <input th:if="${registration}" type="password" placeholder="Подтвердить пароль" name="repeatPassword"
+               class="inputText"
+               required>
+        <span th:if="${errorAuth}" class="error">Указанный пользователь не является корректным</span>
+        <input type="submit" th:value="${registration ? 'Регистрация' : 'Войти'}" class="form-button">
+        <a th:if="${!registration}" href="/registration">Зарегистрироваться</a>
+    </form>
+</main>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<th:block th:fragment="navigationLayout">
+    <nav>
+        <a href="/news">Лента новостей</a>
+        <a sec:authorize="hasAnyRole('ADMIN', 'USER')" href="/add">Добавление новости</a>
+        <a sec:authorize="hasAnyRole('ADMIN', 'USER')" href="/search">Поиск новостей</a>
+        <a sec:authorize="hasAnyRole('ADMIN', 'USER')" href="/news/user">Список моих новостей</a>
+        <a sec:authorize="hasRole('ADMIN')" href="/users/all">Администратор</a>
+    </nav>
+</th:block>
+</body>
+</html>

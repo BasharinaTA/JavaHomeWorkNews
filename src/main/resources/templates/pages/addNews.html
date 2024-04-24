@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Новости</title>
+    <link rel="icon" href="/img/news.ico"/>
+    <link rel="stylesheet" href="/css/style.css"/>
+</head>
+<body>
+<th:block th:insert="~{layouts/header.html::headerLayout}"></th:block>
+<main>
+    <th:block th:insert="~{layouts/navigation.html::navigationLayout}"></th:block>
+    <div class="container">
+        <form th:object="${news}"
+              method="post"
+              action="/news/add"
+              class="form-add">
+            <input type="text" placeholder="Тема" th:field="*{header}"/>
+            <textarea placeholder="Текст" th:field="*{text}"></textarea>
+            <input type="submit" value="Добавить" class="form-button"/>
+        </form>
+    </div>
+</main>
+</body>
+</html>

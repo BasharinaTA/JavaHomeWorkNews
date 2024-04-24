@@ -1,0 +1,147 @@
+body {
+    background-image: url(../img/background.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    color: white;
+    margin: 0;
+    font-size: 20px;
+    min-width: 1000px;
+}
+
+header {
+    margin: auto;
+    display: flex;
+    justify-content: right;
+    padding: 20px;
+    border-bottom: 1px solid white;
+}
+
+.a-button {
+    text-decoration: none;
+    border: 1px solid white;
+    border-radius: 10px;
+    padding: 15px;
+    margin-right: 20px;
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    border: 1px solid white;
+    padding: 10px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: 30px auto;
+    background-color: #575757b3;
+    padding: 30px;
+    gap: 20px;
+}
+
+.empty {
+    text-align: center;
+    font-size: 25px;
+}
+
+.news {
+    border: 1px solid white;
+    padding: 10px 20px;
+    border-radius: 7px;
+    margin: 10px;
+}
+
+.form-login {
+    display: flex;
+    flex-direction: column;
+    margin: 30px auto;
+    width: 600px;
+    text-align: center;
+    color: white;
+    padding: 50px;
+    gap: 20px;
+    border: 2px solid white;
+    border-radius: 10px;
+}
+
+input, textarea, select {
+    padding: 7px;
+    font-size: 20px;
+    font-family: Arial;
+}
+
+.form-button {
+    color: white;
+    border: 2px solid white;
+    border-radius: 10px;
+    background-color: inherit;
+    padding: 7px;
+}
+
+.form-add {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 80%;
+    margin: auto;
+}
+
+.form-search {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 70%;
+    margin: auto;
+}
+
+.form-search input[type="text"], .form-search input[type="date"] {
+    flex-basis: 60%;
+}
+
+.form-search input[type="submit"] {
+    flex-basis: 35%;
+}
+
+.form-logout {
+    text-align: right;
+    margin: 45px;
+}
+
+.button {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    font-size: 30px;
+    min-width: 30px;
+    min-height: 30px;
+    border: 2px solid white;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+table {
+    margin: 30px auto;
+    font-size: 22px;
+    width: 20%;
+}
+
+td {
+    padding: 5px;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+.error {
+    align-self: end;
+    color: #ff8282;
+}
+
+.hidden {
+    display: none;
+}

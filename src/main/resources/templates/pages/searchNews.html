@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Новости</title>
+    <link rel="icon" href="/img/news.ico"/>
+    <link rel="stylesheet" href="/css/style.css"/>
+</head>
+<body>
+<th:block th:insert="~{layouts/header.html::headerLayout}"></th:block>
+<main>
+    <th:block th:insert="~{layouts/navigation.html::navigationLayout}"></th:block>
+    <div class="container">
+        <form method="post" action="/news/search/header" class="form-search">
+          <input type="text" name="header">
+            <input type="submit" value="Поиск по теме" class="form-button">
+        </form>
+        <form method="post" action="/news/search/text" class="form-search">
+        <input type="text" name="text">
+            <input type="submit" value="Поиск по тексту" class="form-button">
+        </form>
+        <form method="post" action="/news/search/date" class="form-search">
+            <input type="date" name="strDate">
+            <input type="submit" value="Поиск по дате" class="form-button">
+        </form>
+    </div>
+</main>
+</body>
+</html>

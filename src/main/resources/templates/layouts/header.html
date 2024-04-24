@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<th:block th:fragment="headerLayout">
+    <header>
+        <a sec:authorize="!isAuthenticated()" href="/login" class="a-button">Регистрация / Вход</a>
+        <a sec:authorize="isAuthenticated()" sec:authentication="name" href="/profile" class="a-button"></a>
+    </header>
+</th:block>
+</body>
+</html>
