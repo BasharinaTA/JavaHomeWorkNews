@@ -9,11 +9,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 @Controller
@@ -32,8 +27,6 @@ public class newsController {
     @PostMapping("/add")
     public String add(News news, Principal principal) {
         String username = principal.getName();
-//        String username = SecurityContextHolder.getContext().getAuthentication().getName();
-        System.out.println(LocalDate.now());
         news.setUser(userService.getByUsername(username));
         news.setDate(new Date());
         newsService.add(news);
@@ -53,16 +46,13 @@ public class newsController {
     }
 
     @PostMapping("/search/date")
-    public String date(Model model, @RequestParam String strDate) throws ParseException {
-        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-        Date date = format.parse(strDate);
-        model.addAttribute("news", newsService.getByDate(date));
+    public String date(Model model, @RequestParam String strDate)  {
+        model.addAttribute("news", newsService.getByDate(strDate));
         return "pages/news";
     }
 
     @GetMapping("/user")
     public String newsUser(Model model, Principal principal) {
-//        String username = SecurityContextHolder.getContext().getAuthentication().getName();
         String username = principal.getName();
         model.addAttribute("news", newsService.getByUser(userService.getByUsername(username)));
         return "pages/news";

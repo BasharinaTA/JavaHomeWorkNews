@@ -1,6 +1,5 @@
 package com.example.homework_13.config;
 
-import com.example.homework_13.model.Role;
 import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

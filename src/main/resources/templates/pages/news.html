@@ -8,15 +8,14 @@
 </head>
 <body>
 <th:block th:insert="~{layouts/header.html::headerLayout}"></th:block>
-<th:block th:insert="~{layouts/button.html:: buttonLayout}" :></th:block>
+<th:block th:insert="~{layouts/button.html:: buttonLayout}"></th:block>
 <main>
     <th:block th:insert="~{layouts/navigation.html::navigationLayout}"></th:block>
     <div class="container">
         <div th:if="${news.isEmpty()}" class="empty">Список новостей пуст</div>
         <div th:each="news : ${news}" class="news">
             <h3>[[${news.header}]]</h3>
-            <span>Автор: [[${news.user.fio}]]</span>
-            <span th:text="${#dates.format(news.date, 'dd.MM.yyyy HH:mm')}"></span>
+            <span th:text="${news.user.fio + ' [' + #dates.format(news.date, 'dd.MM.yyyy HH:mm') + ']'}"></span>
             <p>[[${news.text}]]</p>
         </div>
     </div>

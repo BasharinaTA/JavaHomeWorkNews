@@ -6,11 +6,7 @@ import com.example.homework_13.repository.NewsRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.Date;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 @AllArgsConstructor
@@ -33,8 +29,8 @@ public class NewsServiceImpl implements NewsService {
     }
 
     @Override
-    public List<News> getByDate(Date date) {
-        return newsRepository.findAllByDateOrderByDateDesc(date);
+    public List<News> getByDate(String date) {
+        return newsRepository.findDate(date);
     }
 
     @Override
@@ -46,18 +42,4 @@ public class NewsServiceImpl implements NewsService {
     public News add(News news) {
         return newsRepository.save(news);
     }
-
-    @Override
-    public News update(News news) {
-        Optional<News> newsToUpdateOptional = newsRepository.findById(news.getId());
-        if (newsToUpdateOptional.isPresent()) {
-            News newsToUpdate = newsToUpdateOptional.get();
-            newsToUpdate.setDate(new Date());
-            newsToUpdate.setHeader(news.getHeader());
-            newsToUpdate.setText(news.getText());
-            return newsRepository.save(newsToUpdate);
-        }
-        return null;
-    }
-
 }

@@ -11,58 +11,58 @@
 <th:block th:insert="~{layouts/button.html:: buttonLayout}" :></th:block>
 <main>
     <th:block th:insert="~{layouts/navigation.html::navigationLayout}"></th:block>
-        <table>
-            <thead>
-            <tr>
-                <th>Логин</th>
-                <th>Пользователь</th>
-                <th>Роль</th>
-                <th>Статус</th>
-                <th colspan="2"></th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr th:each="user : ${users}">
-                <form method="post" th:action="@{'/users/update/' + ${user.id}}">
-                    <td><input type="text" th:value="${user.username}" readonly></td>
-                    <td><input type="text" th:value="${user.fio}" readonly></td>
-                    <td>
-                        <select name="strRole">
-                            <th:block th:each="role : ${roles}">
-                                <option th:if="${role.equals(user.role)}" selected
-                                        th:value="${role}">
-                                    [[${role}]]
-                                </option>
-                                <option th:unless="${role.equals(user.role)}"
-                                        th:value="${role}">
-                                    [[${role}]]
-                                </option>
-                            </th:block>
-                        </select>
-                    </td>
-                    <td>
-                        <select name="strStatus">
-                            <th:block th:each="status : ${statuses}">
-                                <option th:if="${status.equals(user.status)}" selected
-                                        th:value="${status}">
-                                    [[${status}]]
-                                </option>
-                                <option th:unless="${status.equals(user.status)}"
-                                        th:value="${status}">
-                                    [[${status}]]
-                                </option>
-                            </th:block>
-                        </select>
-                    <td><input type="submit" value="Редактировать" class="form-button"></td>
-                </form>
+    <table>
+        <thead>
+        <tr>
+            <th>Логин</th>
+            <th>Пользователь</th>
+            <th>Роль</th>
+            <th>Статус</th>
+            <th colspan="2"></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="user : ${users}">
+            <form method="post" th:action="@{'/users/update/' + ${user.id}}">
+                <td><input type="text" th:value="${user.username}" readonly></td>
+                <td><input type="text" th:value="${user.fio}" readonly></td>
                 <td>
-                    <form method="post" th:action="@{'/users/delete/' + ${user.id}}">
-                        <input type="submit" value="Удалить" class="form-button">
-                    </form>
+                    <select name="strRole">
+                        <th:block th:each="role : ${roles}">
+                            <option th:if="${role.equals(user.role)}" selected
+                                    th:value="${role}">
+                                [[${role}]]
+                            </option>
+                            <option th:unless="${role.equals(user.role)}"
+                                    th:value="${role}">
+                                [[${role}]]
+                            </option>
+                        </th:block>
+                    </select>
                 </td>
-            </tr>
-            </tbody>
-        </table>
+                <td>
+                    <select name="strStatus">
+                        <th:block th:each="status : ${statuses}">
+                            <option th:if="${status.equals(user.status)}" selected
+                                    th:value="${status}">
+                                [[${status}]]
+                            </option>
+                            <option th:unless="${status.equals(user.status)}"
+                                    th:value="${status}">
+                                [[${status}]]
+                            </option>
+                        </th:block>
+                    </select>
+                <td><input type="submit" value="Редактировать" class="form-button"></td>
+            </form>
+            <td>
+                <form method="post" th:action="@{'/users/delete/' + ${user.id}}">
+                    <input type="submit" value="Удалить" class="form-button">
+                </form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
 </main>
 </body>
 </html>

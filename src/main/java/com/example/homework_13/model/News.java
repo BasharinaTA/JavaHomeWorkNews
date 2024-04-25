@@ -3,7 +3,6 @@ package com.example.homework_13.model;
 import javax.persistence.*;
 import lombok.*;
 
-import java.time.LocalDateTime;
 import java.util.Date;
 
 @Getter
